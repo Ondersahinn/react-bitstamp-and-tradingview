@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/react-bitstamp-and-tradingview/static/css/main.f5f99d1d.chunk.css",
+    "main.js": "/react-bitstamp-and-tradingview/static/js/main.9e3e2fa2.chunk.js",
+    "main.js.map": "/react-bitstamp-and-tradingview/static/js/main.9e3e2fa2.chunk.js.map",
+    "runtime-main.js": "/react-bitstamp-and-tradingview/static/js/runtime-main.d66de545.js",
+    "runtime-main.js.map": "/react-bitstamp-and-tradingview/static/js/runtime-main.d66de545.js.map",
+    "static/css/2.caac94ae.chunk.css": "/react-bitstamp-and-tradingview/static/css/2.caac94ae.chunk.css",
+    "static/js/2.d41d3b1d.chunk.js": "/react-bitstamp-and-tradingview/static/js/2.d41d3b1d.chunk.js",
+    "static/js/2.d41d3b1d.chunk.js.map": "/react-bitstamp-and-tradingview/static/js/2.d41d3b1d.chunk.js.map",
+    "static/js/3.53f850f5.chunk.js": "/react-bitstamp-and-tradingview/static/js/3.53f850f5.chunk.js",
+    "static/js/3.53f850f5.chunk.js.map": "/react-bitstamp-and-tradingview/static/js/3.53f850f5.chunk.js.map",
+    "static/js/4.bf2a58a4.chunk.js": "/react-bitstamp-and-tradingview/static/js/4.bf2a58a4.chunk.js",
+    "static/js/4.bf2a58a4.chunk.js.map": "/react-bitstamp-and-tradingview/static/js/4.bf2a58a4.chunk.js.map",
+    "index.html": "/react-bitstamp-and-tradingview/index.html",
+    "static/css/2.caac94ae.chunk.css.map": "/react-bitstamp-and-tradingview/static/css/2.caac94ae.chunk.css.map",
+    "static/css/main.f5f99d1d.chunk.css.map": "/react-bitstamp-and-tradingview/static/css/main.f5f99d1d.chunk.css.map",
+    "static/js/2.d41d3b1d.chunk.js.LICENSE.txt": "/react-bitstamp-and-tradingview/static/js/2.d41d3b1d.chunk.js.LICENSE.txt",
+    "static/js/3.53f850f5.chunk.js.LICENSE.txt": "/react-bitstamp-and-tradingview/static/js/3.53f850f5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d66de545.js",
+    "static/css/2.caac94ae.chunk.css",
+    "static/js/2.d41d3b1d.chunk.js",
+    "static/css/main.f5f99d1d.chunk.css",
+    "static/js/main.9e3e2fa2.chunk.js"
+  ]
+}
