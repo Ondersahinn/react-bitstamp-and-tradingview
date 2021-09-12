@@ -1,17 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { Provider } from 'react-redux'
+import ReduxToastr from 'react-redux-toastr'
+import store from './store';
+import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
+const AppToRender = () => (
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <ReduxToastr
+      timeOut={5000}
+      preventDuplicates
+      position="bottom-left"
+      getState={(state) => state.toastr}
+      transitionIn="fadeIn"
+      transitionOut="fadeOut"
+      progressBar
+    />
+  </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<AppToRender />, document.getElementById('root'));
