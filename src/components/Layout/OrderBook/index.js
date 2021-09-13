@@ -24,7 +24,6 @@ function OrderBook() {
             response.data.asks = response.data.asks.slice(Math.max(response.data.asks.length - 15, 0));
             response.data.asks = response.data.asks.sort((a, b) => a - b);
             response.data.bids = response.data.bids.sort((a, b) => b - a);
-            console.log(response.data)
             setOrders(response.data);
             setLoading(true);
           }

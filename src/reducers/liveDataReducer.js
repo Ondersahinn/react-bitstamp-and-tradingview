@@ -8,14 +8,12 @@ const initialState = {
 export default function LiveReducer(state = initialState, { type, payload }) {
   switch (type) {
     case LiveOrderAction.ADD_LIVE_ORDER_DATA:
-          if(state.liveOrders.length > 29) {
-              state.liveOrders = [];
+            if(state.liveOrders.length > 30) {
+              state.liveOrders = state.liveOrders.slice(Math.max(state.liveOrders.length - 30, 0));
+            }
+            else {
               state.liveOrders.push(payload);
-          }
-          else{
-            state.liveOrders.push(payload);
-
-          }
+            }
         return {
       ...state,
     };
@@ -23,7 +21,7 @@ export default function LiveReducer(state = initialState, { type, payload }) {
       state.liveTrades.push(payload);
       return {
     ...state,
-  };
+    };
       default:
       return state;
   }

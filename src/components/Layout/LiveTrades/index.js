@@ -31,7 +31,6 @@ function LiveTrades(props) {
             const date = new Date(parseInt(response.data.microtimestamp));
             response.data.microtimestamp = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
             props.addLiveTradeData(response.data);
-            console.log(props.liveTrades)
             setOrders(props.liveTrades);
             setLoading(true);
           }

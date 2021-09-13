@@ -8,6 +8,7 @@ function LiveOrders(props) {
 
   const [loading, setLoading] = useState(false);
   const [orders, setOrders] = useState([]);
+
   const [subscription] = useState({
     event: 'bts:subscribe',
     data: {
@@ -21,23 +22,25 @@ function LiveOrders(props) {
       ws.send(JSON.stringify(subscription));
     };
     ws.onmessage = (event) => {
-      if(event.data) {
-        const response = JSON.parse(event.data);
-        setOrders(props.liveOrders);
-        if (orderTypes.indexOf(response.event) !== -1) {
-          const date = new Date(parseInt(response.data.microtimestamp));
-          response.data.microtimestamp = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-          props.addLiveOrderData(response.data);
-          setOrders(props.liveOrders);
-          // setLoading(true);
-        } 
-        else if (response.event === 'bts:request_reconnect') {
-            initWebsocket();
-        }
-      }
-      else {
-        setLoading(false);
-
+      const response = JSON.parse(event.data);
+      switch (response.event) {
+        case  orderTypes.find(x => x === response.event):
+          if(response.data) {
+            const date = new Date(parseInt(response.data.microtimestamp));
+            response.data.microtimestamp = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+            props.addLiveOrderData(response.data);
+            setOrders(props.liveOrders);
+            setLoading(true);
+          }
+          else {
+            setLoading(false);
+          }
+          break;
+        case 'bts:request_reconnect':
+          initWebsocket();
+          break;
+        default:
+          break;
       }
     };
     ws.onclose = () => {
@@ -47,7 +50,7 @@ function LiveOrders(props) {
 
   useEffect(() => {
     initWebsocket();
-}, [orders ,subscription]);
+}, [orders,subscription,props]);
 
   return (
       <div className="live-order-data-grid-part">
@@ -62,14 +65,14 @@ function LiveOrders(props) {
           <tbody>
 
             {
-              
+              loading ?
                 orders.map((el, index) => (
                     <tr key={index}>
                       <td style={{color: el.order_type === 0 ? 'green' : 'red'}}> {el.price} </td>
                       <td> {el.amount} </td>
                       <td> {el.microtimestamp}</td>
                     </tr>
-                  )) 
+                  )) : ''
               }
             </tbody>
         </table>
